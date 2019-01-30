@@ -3,4 +3,5 @@
     <string name="product_name">расход</string>
     <string name="product_price">$</string>
     <string name="btnAdd">+</string>
+    <string name="errorEmptyString">Укажите имя раcхода или стоимость</string>
 </resources>
