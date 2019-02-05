@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WideWallet</string>
-    <string name="product_name">расход</string>
-    <string name="product_price">$</string>
+    <string name="product_name">Название</string>
+    <string name="product_price">0 $</string>
     <string name="btnAdd">+</string>
-    <string name="errorEmptyString">Укажите имя раcхода или стоимость</string>
+    <string name="errorEmptyString">Укажите название или стоимость</string>
 </resources>
