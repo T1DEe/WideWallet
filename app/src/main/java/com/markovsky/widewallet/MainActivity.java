@@ -1,6 +1,8 @@
 package com.markovsky.widewallet;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,10 +32,14 @@ public class MainActivity extends Activity {
 
         itemsList = findViewById(R.id.rvItemList);
 
+        final SpendingDBHelper spendingDBHelper = new SpendingDBHelper(itemsList.getContext());
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         itemsList.setLayoutManager(linearLayoutManager);
-        ListAdapter listAdapter = new ListAdapter();
+        final ListAdapter listAdapter = new ListAdapter(spendingDBHelper.getReadableDatabase());
         itemsList.setAdapter(listAdapter);
+
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +52,8 @@ public class MainActivity extends Activity {
                 {
                     // Добавление новой записи в БД
                     // Обновление RecyclerView
-                    // ...
-                    // ...
+                    SpendingDBHelper.insertLine(spendingDBHelper.getWritableDatabase(), null, productName.getText().toString(), Integer.parseInt(productPrice.getText().toString()));
+                    listAdapter.notifyDataSetChanged();
                 }
             }
         });
