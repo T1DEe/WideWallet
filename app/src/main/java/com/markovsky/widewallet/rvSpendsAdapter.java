@@ -8,33 +8,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder> {
+public class rvSpendsAdapter extends RecyclerView.Adapter<rvSpendsAdapter.SpendViewHolder> {
 
     private SQLiteDatabase database;
 
-    public ListAdapter(SQLiteDatabase db)
+    public rvSpendsAdapter(SQLiteDatabase db)
     {
         database = db;
     }
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SpendViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.list_item, viewGroup);
+        View view = inflater.inflate(R.layout.rv_list_item, viewGroup);
 
         //Присвоение значения Item из БД
         //...
         //...
 
-        ItemViewHolder viewHolder = new ItemViewHolder(view);
+        SpendViewHolder viewHolder = new SpendViewHolder(view);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int i) {
+    public void onBindViewHolder(@NonNull SpendViewHolder viewHolder, int i) {
         //Изменение данных Item при прокрутке
         //...
         //...
@@ -47,12 +47,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder
         return 0;
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class SpendViewHolder extends RecyclerView.ViewHolder {
 
         TextView itemName;
         TextView itemPrice;
 
-        private ItemViewHolder(@NonNull View itemView) {
+        private SpendViewHolder(@NonNull View itemView) {
             super(itemView);
 
             itemName = itemView.findViewById(R.id.tvItemName);

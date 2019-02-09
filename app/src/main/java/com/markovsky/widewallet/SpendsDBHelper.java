@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.Date;
 
-public class SpendingDBHelper extends SQLiteOpenHelper {
+public class SpendsDBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "spends";
     private static final int DB_VERSION = 1;
 
-    SpendingDBHelper (Context context) {
+    SpendsDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
@@ -30,7 +30,7 @@ public class SpendingDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    public static void insertLine(SQLiteDatabase db, Date date, String name, int price)
+    public static void insertSpendInDB(SQLiteDatabase db, Date date, String name, int price)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put("DATE", "NULL"); //??
